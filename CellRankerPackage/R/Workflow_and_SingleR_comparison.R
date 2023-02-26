@@ -1,3 +1,5 @@
+#This file shows the CellRanker workflow, and compares its output to SingleR, the primary package for cell type annotation. 
+
 #figure generation and comparison with SingleR
 library("SingleR")
 library("CellRankerPackage")
