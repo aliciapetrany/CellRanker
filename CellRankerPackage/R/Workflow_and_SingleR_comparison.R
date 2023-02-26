@@ -24,20 +24,3 @@ Seuratobj.SingleR$celltype <- SingleR.pred$labels
 #Visualizing final results
 DimPlot(Seuratobj.SingleR, reduction = "tsne", group.by = 'celltype')
 DimPlot(Seuratobj.CellRanker, reduction = "tsne", group.by = 'cell_type')
-
-
-
-
-
-#not for final vignette
-Seuratobj <- load_example_data()
-Seuratobj <- process_counts(Seuratobj)
-marker.gene.files <-list.files("marker_genes")
-marker.gene.files <- marker.gene.files[c(1,10,11,12,13,14,15,16,17,2,3,4,5,6,7,8,9)]
-marker.list <- list()
-for (i in 1:length(marker.gene.files)){
-  marker.list[[i]] <- read.csv(paste("marker_genes/", marker.gene.files[i], sep = ""))
-  rownames(marker.list[[i]]) <- marker.list[[i]][,1]
-  marker.list[[i]] <- marker.list[[i]][-1]
-}
-Seuratobj.final <- CellRanker_knownmarkers(Seuratobj, marker.list)
