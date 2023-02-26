@@ -4,6 +4,10 @@ library(shiny)
 library(plotly)
 library(Seurat)
 library(stringi)
+
+example.cords <- read.csv("example_tsne_coords.csv") #reads example data
+outputdf <- example.cords[,c(1,4)]
+
 # Define UI for application 
 ui <- fluidPage(
 
@@ -73,8 +77,6 @@ server <- function(input, output) {
     
     #Event to manage visualizing sample data in response to button press
     observeEvent(input$example, {
-        example.cords <- read.csv("example_tsne_coords.csv") #reads example data
-        outputdf <- example.cords[,c(1,4)]
         output$graph <- renderPlotly({
             plot_ly(example.cords, 
                    x = ~tSNE_1, 
@@ -93,7 +95,7 @@ server <- function(input, output) {
            paste("input$dataset", ".csv", sep = "")
          },
          content = function(file) {
-           write.csv(outputdf, file, row.names = FALSE)
+           write.csv(outputdf, file)
          }
     )
   
