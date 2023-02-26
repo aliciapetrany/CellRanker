@@ -56,29 +56,6 @@ CellRanker_knownmarkers <- function(SeuratObj, marker.list, vis = FALSE){
   return(Seuratobj)
 }
 
-#'Loads example prostate cancer dataset from Heidigger et. al
-#'
-#'@export
-load_example_data <- function(){
-  library(Seurat)
-  samples <- list.files("example_data/")
-  sample.list <- list()
-  for (i in 1:length(samples)){
-    dir <- paste("example_data/", samples[i], "/", sep = "")
-    sample.list[[i]] <- Read10X(data.dir = dir)
-    sample.list[[i]] <- CreateSeuratObject(sample.list[[i]])
-  }
-
-  Seuratobj <- merge(sample.list[[1]], y = c(sample.list[[2]],
-                                             sample.list[[3]],
-                                             sample.list[[4]],
-                                             sample.list[[5]],
-                                             sample.list[[6]],
-                                             sample.list[[7]],
-                                             sample.list[[8]]),
-                                            add.cell.ids = samples)
-  return(Seuratobj)
-}
 
 #'Preprocesses counts by follwing Seurat's suggested preprocessing workflow
 #'
