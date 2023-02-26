@@ -1,4 +1,6 @@
 # CellRanker
+## An R framework that performs rank-based cell type annotation of scRNA-Seq data
+
 A Seurat-compatible package to perform cell type cluster annotations on scRNA-seq data
 
 ### R Shiny Application:
