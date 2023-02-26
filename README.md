@@ -17,9 +17,8 @@ Then, you can load in the package with the following command:
 ```
 library(CellRankerPackage)
 ```
-Finally, with any seurat object, CellRanker can be run with a single command A built in example dataset sourced from Heidegger et. al used in the following example: 
+Finally, with any seurat object, CellRanker can be run with a single command. 
 ```
-Seuratobj <- load_example_data()
 Seuratobj <- CellRanker(Seuratobj, vis = TRUE)
 ```
 It's as easy as that!  
